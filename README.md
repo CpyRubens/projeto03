@@ -1,12 +1,15 @@
 # projeto03
 
 Marvel Characters
+
 Site que permite armazenar dados de personagens da Marvel em memória local
 
 📦 Desenvolvimento
+
 Foi desenvolvido um CRUD básico com os dados guardardos em memória.
 
 🛠️ Construído com
+
 Tecnologias e linguagens utilizadas no projeto:
 
 Linguagem: JavaScript e EJS
