@@ -1,5 +1,6 @@
+require("dotenv").config()
+
 const express = require("express");
-const res = require("express/lib/response");
 const path = require("path")
 const app = express();
 
@@ -65,7 +66,7 @@ app.post("/add", (req, res) => {
     character.id = characterList.length + 1;
     characterList.push(character);
 
-    message =`Parabéns, ${character.nome} foi adicionando com sucesso a sua pokédex` ;
+    message =`Parabéns, ${character.heroi} foi adicionando com sucesso a sua lista` ;
     res.redirect("/#cards");
 
 });

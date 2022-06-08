@@ -17,18 +17,17 @@
         <ul>
             <li><img src="http://assets.stickpng.com/images/585f9333cb11b227491c3581.png" alt=""></li>
             <li>
-                <h1>Marvel Characters</h1>
+                <a href="/"><h1>Marvel Characters</h1></a>
             </li>
             <li><a href="#cadastro">Cadastre um Persogem</a></li>
             <li><a href="#cards">Lista de Personagens</a></li>
-
         </ul>
     </nav>
     
     <% if(check == 0){ %>
         <section id="details">
             
-            <div class="detail" style="background: url(<%= character.imgbg %>); background-repeat: no-repeat; background-size: cover; background-position: center; background-attachment: fixed;">
+            <div class="detail" style="background: url(<%= character.imgbg %>); background-repeat: no-repeat; background-size: cover; background-position: center; background-attachment: scroll;">
 
                 <div class="container">
                     <img src="<%= character.imagem2 %>" alt="">
@@ -47,10 +46,10 @@
                     <p>Especie: <%= character.especie %></p>
                     <p>Aliança: <%= character.alianca %></p>
                 </div>
-              
+                <button class="close">x</button>
             </div>
 
-            <button class="close">x</button>
+            
 
             <% } %>
            
@@ -85,9 +84,9 @@
                                 </p>
                             </div>
                             <div id=btns>
-                                <a class="att" href="/detalhes/<%= character.id %>">Editar</a>
+                                <a class="edt" href="/detalhes/<%= character.id %>">Editar</a>
                                 <a href="/deletar/<%= character.id %>">Apagar</a>
-                                <a class="see" href="/vermais/<%= character.id %>">ver mais</a>
+                                <a class="dtl" href="/vermais/<%= character.id %>">Detalhes</a>
                             </div>
                             
                         </div>
@@ -187,6 +186,12 @@
             </footer>
 
             <script src="scripts/script.js"></script>
+            <script>const closeMessage = document.querySelector("#close")
+                const message = document.querySelector("#message")
+                
+                closeMessage.addEventListener("click", function (){
+                    message.style.display = "none"
+                })</script>
 </body>
 
 </html>
