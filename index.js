@@ -39,7 +39,7 @@ const characterList = [{
 }
 ]
 
-
+//verifacdores 
 let character = undefined;
 let message = "";
 let check = 1;
