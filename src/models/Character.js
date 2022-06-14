@@ -53,7 +53,7 @@ const Character = connection.define('character', {
 }
 );
 
-const initTable = ()=>{
+const initTable = async ()=>{
     await Character.sync();
 };
 initTable();
