@@ -1,9 +1,11 @@
 const Character = require('../models/Character')
+const orderByID = {order:[["id", "ASC"]]};
+
 
 const getAll = async (req, res) => {
     try {
-        const characterList = await Character.findAll()
-        res.render("index", { characterList, check: 1, message: "", characterPut: null, characterDel: null, characterDtl:null })
+        const characterList = await Character.findAll(orderByID)
+        res.render("index", { characterList, message: "", characterPut: null, characterDel: null, characterDtl:null })
     } catch (err) {
         res.status(500).send({ err: err.message })
     }
@@ -12,7 +14,7 @@ const getAll = async (req, res) => {
 const add = async (req, res) => {
     try {
         const characterList = await Character.findAll()
-        res.render("add", { characterList, character: undefined, check: 1, message: "" })
+        res.render("add", { characterList, character: undefined,  message: "" })
     } catch (err) {
         res.status(500).send({ err: err.message })
     }
@@ -21,6 +23,7 @@ const add = async (req, res) => {
 const create = async (req, res) => {
     try {
         const character = req.body;
+        const message =`Parabéns, ${character.heroi} foi adicionando com sucesso a sua lista` ;
 
         if (!character) {
             return res.redirect("/add")
@@ -36,7 +39,7 @@ const create = async (req, res) => {
 const getById = async (req, res) => {
     try {
         const method = req.params.method
-        const characterList = await Character.findAll()
+        const characterList = await Character.findAll(orderByID)
         const character = await Character.findByPk(req.params.id)
 
         if (method == 'put') {
